@@ -1,9 +1,9 @@
  
-## Projet Kafka
+## Kafka
 
-Ce projet illustre l'utilisation de **Apache Kafka** pour gérer des flux de données en temps réel dans une architecture distribuée. Kafka est une plateforme de streaming open-source très utilisée pour la gestion de grandes quantités de données.
+This project sets up a local Kafka environment using Docker Compose with two main services: Zookeeper and Kafka. Zookeeper is used for managing Kafka's metadata, while Kafka handles real-time data streaming. The configuration in the docker-compose.yml file defines the listening ports, service connections, and settings required to run a Kafka cluster. This setup is used to extract data from Scopus via a Kafka cluster running in a Docker container.
 
-## Table des matières
+## 
 
 - [Introduction](#introduction)
 - [Prérequis](#prérequis)
