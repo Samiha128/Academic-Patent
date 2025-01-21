@@ -16,10 +16,9 @@ headers = {
 }
 
 
-bootstrap_servers = "localhost:29092"  # Remplacez par l'adresse de votre broker si nécessaire
+bootstrap_servers = "localhost:29092" 
 topic = "scopus"
 
-# Créer une instance de producteur Kafka
 producer = Producer({"bootstrap.servers": bootstrap_servers})
 
 count = 25
@@ -63,10 +62,10 @@ while request_count < max_requests:
                 "openaccessFlag": item.get("openaccessFlag"),
             }
 
-            # Produire le message sur le topic Kafka
+           
             producer.produce(topic, value=json.dumps(filtered_data, ensure_ascii=False))
         
-        # Assurez-vous que tous les messages sont envoyés
+       
         producer.flush()
 
         if len(items) < count:
