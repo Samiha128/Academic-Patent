@@ -1,38 +1,27 @@
  
-## Projet Kafka
+## Kafka
 
-Ce projet illustre l'utilisation de **Apache Kafka** pour gérer des flux de données en temps réel dans une architecture distribuée. Kafka est une plateforme de streaming open-source très utilisée pour la gestion de grandes quantités de données.
+This project sets up a local Kafka environment using Docker Compose with two main services: Zookeeper and Kafka. Zookeeper is used for managing Kafka's metadata, while Kafka handles real-time data streaming. The configuration in the docker-compose.yml file defines the listening ports, service connections, and settings required to run a Kafka cluster. This setup is used to extract data from Scopus via a Kafka cluster running in a Docker container.
 
-## Table des matières
+##  How to Run the Project
 
-- [Introduction](#introduction)
-- [Prérequis](#prérequis)
-- [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Contribuer](#contribuer)
-- [Licences](#licences)
+### Set Up Docker Desktop on Your PC
+Ensure that Docker Desktop is installed on your computer. You can download it from the official Docker website ,After installing, make sure Docker Desktop is running.
+### Start the Services with Docker Compose
 
-## Introduction
-
-**Apache Kafka** est un système de messagerie distribué à haut débit. Il permet de transmettre des données en temps réel entre des producteurs et des consommateurs. Kafka est largement utilisé pour des cas d'usage tels que la gestion de logs, l'analyse en temps réel des données, et la gestion des événements dans des architectures microservices.
-
-Dans ce projet, vous apprendrez à configurer un cluster Kafka, à produire et consommer des messages avec des producteurs et consommateurs Kafka.
-
-## Prérequis
-
-Avant de commencer, vous devez disposer des éléments suivants :
-
-- **Java 8 ou supérieur** : Kafka est écrit en Java et nécessite Java pour fonctionner.
-- **Zookeeper** : Kafka utilise Zookeeper pour coordonner le fonctionnement du cluster. Il doit être installé et configuré.
-- **Kafka** : Téléchargez et installez Kafka depuis le site officiel.
-- Un gestionnaire de paquets comme `Maven` ou `Gradle` si vous souhaitez l'intégrer dans un projet Java.
-
-## Installation
-
-### 1. Cloner ce dépôt
-
-Clonez ce dépôt sur votre machine locale pour commencer à l'utiliser.
-
+Run the following command to start the Kafka and Zookeeper services in detached mode
+ ```bash
+docker-compose up -d
+```
+Once the services are up and running, you can create the Kafka topic with:
 ```bash
-git clone https://github.com/votre-utilisateur/votre-repository.git
-cd votre-repository
+docker-compose exec kafka kafka-topics --create --topic scopus --partitions 1 --replication-factor 1 --if-not-exists --bootstrap-server localhost:29092
+```
+
+### Run the Kafka Producer
+fter creating the topic, you can run the producer using the Python script:
+python producer.py
+
+###  Run the Kafka Consumer
+you can run the consumer using the Python script:
+python consumer.Py
