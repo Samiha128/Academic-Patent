@@ -3,18 +3,9 @@
 
 This project sets up a local Kafka environment using Docker Compose with two main services: Zookeeper and Kafka. Zookeeper is used for managing Kafka's metadata, while Kafka handles real-time data streaming. The configuration in the docker-compose.yml file defines the listening ports, service connections, and settings required to run a Kafka cluster. This setup is used to extract data from Scopus via a Kafka cluster running in a Docker container.
 
-## 
+##  How to Run the Project
 
-- [Introduction](#introduction)
-- [Prérequis](#prérequis)
-- [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Contribuer](#contribuer)
-- [Licences](#licences)
-
-## Introduction
-
-**Apache Kafka** est un système de messagerie distribué à haut débit. Il permet de transmettre des données en temps réel entre des producteurs et des consommateurs. Kafka est largement utilisé pour des cas d'usage tels que la gestion de logs, l'analyse en temps réel des données, et la gestion des événements dans des architectures microservices.
+**Set Up Docker Desktop on Your PC** Ensure that Docker Desktop is installed on your computer. You can download it from the official Docker website ,After installing, make sure Docker Desktop is running.
 
 Dans ce projet, vous apprendrez à configurer un cluster Kafka, à produire et consommer des messages avec des producteurs et consommateurs Kafka.
 
