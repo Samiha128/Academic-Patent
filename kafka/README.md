@@ -5,9 +5,12 @@ This project sets up a local Kafka environment using Docker Compose with two mai
 
 ##  How to Run the Project
 
-**Set Up Docker Desktop on Your PC** Ensure that Docker Desktop is installed on your computer. You can download it from the official Docker website ,After installing, make sure Docker Desktop is running.
+### Set Up Docker Desktop on Your PC
+Ensure that Docker Desktop is installed on your computer. You can download it from the official Docker website ,After installing, make sure Docker Desktop is running.
+### Start the Services with Docker Compose
 
-Dans ce projet, vous apprendrez à configurer un cluster Kafka, à produire et consommer des messages avec des producteurs et consommateurs Kafka.
+Run the following command to start the Kafka and Zookeeper services in detached mode
+docker-compose up -d
 
 ## Prérequis
 
