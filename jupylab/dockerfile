@@ -1,20 +1,14 @@
-# Utiliser l'image de base Jupyter
+
 FROM jupyter/all-spark-notebook:latest
 
-# Passer à l'utilisateur root pour installer les dépendances
 USER root
 
-# Installer pyspark et boto3
 RUN pip install pyspark
 RUN pip install boto3
 RUN pip install minio
-
-# Télécharger les fichiers jar nécessaires avec les privilèges root
 RUN wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.2/hadoop-aws-3.3.2.jar -P /usr/local/spark/jars/
 RUN wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.901/aws-java-sdk-bundle-1.11.901.jar -P /usr/local/spark/jars/
 
-# Revenir à l'utilisateur initial
 USER $NB_UID
 
-# Exposer le port pour JupyterLab
 EXPOSE 8888
