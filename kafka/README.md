@@ -13,6 +13,10 @@ Run the following command to start the Kafka and Zookeeper services in detached 
  ```bash
 docker-compose up -d
 ```
+Once the services are up and running, you can create the Kafka topic with:
+```bash
+docker-compose exec kafka kafka-topics --create --topic scopus --partitions 1 --replication-factor 1 --if-not-exists --bootstrap-server localhost:29092
+```
 
 ## Prérequis
 
