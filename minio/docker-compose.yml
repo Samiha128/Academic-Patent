@@ -1,0 +1,25 @@
+
+services:  
+  minio:
+    image: docker.io/bitnami/minio:2022
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    networks:
+      - minionetwork
+    volumes:
+      - 'minio_data:/data'
+    #  - './scripts:/scripts' 
+    environment:
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=minio123
+      - MINIO_DEFAULT_BUCKETS=datalake
+  #  entrypoint: /bin/bash -c "/scripts/create_buckets.sh && sleep 20 && /opt/bitnami/minio/bin/minio server /data"
+
+networks:
+  minionetwork:
+    driver: bridge
+
+volumes:
+  minio_data:
+    driver: local
