@@ -8,9 +8,9 @@ services:
       AWS_ACCESS_KEY_ID: minio
       AWS_SECRET_ACCESS_KEY: minio123
     volumes:
-      - ./notebooks:/home/jovyan/work  # Monte le répertoire local 'notebooks' dans le conteneur
+      - ./notebooks:/home/jovyan/work  
      
-      - ../spark/data:/home/jovyan/data  # Monte le répertoire local contenant les données dans le conteneur
+      - ../spark/data:/home/jovyan/data  
     networks:
       - jupynetwork
     depends_on:
@@ -31,13 +31,13 @@ services:
       - jupynetwork
     volumes:
       - 'minio_data:/data'
-    #  - './scripts:/scripts' 
+   
     environment:
       - MINIO_ROOT_USER=minio
       - MINIO_ROOT_PASSWORD=minio123
       - MINIO_DEFAULT_BUCKETS=datalake
     
-  #  entrypoint: /bin/bash -c "/scripts/create_buckets.sh && sleep 20 && /opt/bitnami/minio/bin/minio server /data"
+ 
   spark-master:
     image: bitnami/spark:3.5.0
     command: bin/spark-class org.apache.spark.deploy.master.Master
