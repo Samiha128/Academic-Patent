@@ -10,7 +10,9 @@ Ensure that Docker Desktop is installed on your computer. You can download it fr
 ### Start the Services with Docker Compose
 
 Run the following command to start the Kafka and Zookeeper services in detached mode
+ ```bash
 docker-compose up -d
+```
 
 ## Prérequis
 
