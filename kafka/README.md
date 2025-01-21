@@ -18,21 +18,10 @@ Once the services are up and running, you can create the Kafka topic with:
 docker-compose exec kafka kafka-topics --create --topic scopus --partitions 1 --replication-factor 1 --if-not-exists --bootstrap-server localhost:29092
 ```
 
-## Prérequis
+### Run the Kafka Producer
+fter creating the topic, you can run the producer using the Python script:
+python producer.py
 
-Avant de commencer, vous devez disposer des éléments suivants :
-
-- **Java 8 ou supérieur** : Kafka est écrit en Java et nécessite Java pour fonctionner.
-- **Zookeeper** : Kafka utilise Zookeeper pour coordonner le fonctionnement du cluster. Il doit être installé et configuré.
-- **Kafka** : Téléchargez et installez Kafka depuis le site officiel.
-- Un gestionnaire de paquets comme `Maven` ou `Gradle` si vous souhaitez l'intégrer dans un projet Java.
-
-## Installation
-
-### 1. Cloner ce dépôt
-
-Clonez ce dépôt sur votre machine locale pour commencer à l'utiliser.
-
-```bash
-git clone https://github.com/votre-utilisateur/votre-repository.git
-cd votre-repository
+###  Run the Kafka Consumer
+you can run the consumer using the Python script:
+python consumer.Py
