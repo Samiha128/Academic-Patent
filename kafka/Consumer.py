@@ -39,7 +39,7 @@ try:
         message_value = msg.value()
         print(f"Received message: {message_value.decode('utf-8')}")
 
-        # Ajouter l'extension .json au nom de l'objet
+       
         object_name = (msg.key().decode('utf-8') if msg.key() else str(uuid.uuid4())) + '.json'
         data = io.BytesIO(message_value) 
         minio_client.put_object(bucket_name, object_name, data, len(message_value))
