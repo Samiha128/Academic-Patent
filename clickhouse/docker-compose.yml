@@ -1,16 +1,18 @@
-version: '3'
 
 services:
   click_server:
-    image: yandex/clickhouse-server
+    image: clickhouse/clickhouse-server
     ports:
       - "8123:8123"
     volumes:
       - ./dbfiles:/var/lib/clickhouse
+      - ./initdb.d:/docker-entrypoint-initdb.d
+      - ./config.d:/etc/clickhouse-server/config.d/
+      - ./users.d:/etc/clickhouse-server/users.d/
+    networks:
+      - jupynetwork  
 
-  click_client:
-    image: yandex/clickhouse-client
-    entrypoint:
-      - /bin/sleep
-    command:
-      - infinity
+networks:
+  jupynetwork:
+    external: true  
+ 
