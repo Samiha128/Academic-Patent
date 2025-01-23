@@ -36,7 +36,7 @@ Clone the project repository to your local machine using the following command:
      ```bash
      git clone git@github.com:Samiha128/Academic-Patent.git
      cd Academic-Patent
-
+     ```
 ### 2. Set up AWS services:
    This project leverages several AWS services. Here's how to set them up:
    
