@@ -28,10 +28,7 @@ The goal of this project is to analyze academic patents extracted from Scopus vi
 
 Follow the steps below to set up the project on your local machine or AWS environment.
 
-### Prerequisites:
-- **AWS Account**: Make sure you have an active AWS account. If not, you can create one [here](https://aws.amazon.com/).
-- **AWS CLI**: Install and configure the AWS Command Line Interface (CLI) for interacting with AWS services. [AWS CLI Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
-- **Git**: Make sure you have Git installed to clone the repository.
+
 
 ### 1. **Clone the repository**:
 Clone the project repository to your local machine using the following command:
