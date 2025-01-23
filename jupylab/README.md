@@ -1,2 +1,3 @@
 
-## 
+##  Data Transformation and Storage with Spark, MinIO, and JupyterLab in Docker
+In this section of the project, the data is stored in MinIO, an object storage system compatible with S3, which efficiently manages large datasets. The data transformation is carried out using Apache Spark, with a distributed architecture consisting of a master node and two worker nodes. Everything is orchestrated within a Docker environment, providing a flexible and portable solution. An integrated JupyterLab interface allows for interactive development and execution of data transformations, making it easier to work with the data and code. This setup ensures optimal data management and enhanced performance through the parallel processing capabilities of Spark.
