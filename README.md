@@ -45,7 +45,7 @@ Navigate to the project directory and run the following command to bring up the 
 
 
 ## Architecture
-![Architecture](./images/architecture.png)
+![Architecture](./spark/images/big_data.gif)
 
 ## contact
 
