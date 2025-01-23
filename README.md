@@ -13,12 +13,12 @@
 The goal of this project is to analyze academic patents extracted from Scopus via a Kafka producer, with the data stored in MinIO. The architecture follows a Medallion model, with data transformations performed through a Spark cluster consisting of one Spark master and two worker nodes. The transformations are executed within an integrated JupyterLab environment in Docker. After the transformation, the data is stored in MinIO in the form of Parquet files. Finally, the transformed data is transferred to ClickHouse, and dashboards are created using Power BI.
 
 ### Key Features:
-- **Real-time stock market data collection** using **Kafka** for streaming data ingestion.
-- **AWS S3** for scalable storage of raw and processed stock market data.
-- **AWS Crawler** for data discovery and automatic cataloging in the **Glue Data Catalog**.
-- **Glue Data Catalog** to maintain a catalog of stock data for easier querying and metadata management.
-- **AWS Athena** for querying the stock data directly from **S3** using SQL without the need for data movement.
-- Scalable and serverless architecture for processing large volumes of stock data.
+- **MinIO Storage**: Raw data is stored in MinIO, an object storage service, for secure and scalable management.
+- **Spark Cluster**: Data transformation is handled by a Spark cluster with one master node and two worker nodes, ensuring distributed processing for large datasets.
+- **Kafka Integration**: Data is extracted from Scopus using a Kafka producer, enabling efficient and scalable data streaming.
+- **JupyterLab Integration**: Data transformations are performed interactively within JupyterLab, integrated in a Docker environment, offering flexibility and ease of use.
+- **ClickHouse Integration**: Transformed data is loaded into ClickHouse for fast, scalable analytics.
+- **Power BI Dashboards**: Data visualizations and interactive dashboards are created using Power BI, enabling insights and reporting.
 
 
 ---
