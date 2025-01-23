@@ -26,101 +26,23 @@ The goal of this project is to analyze academic patents extracted from Scopus vi
 
 ## ⚙️ Installation
 
-Follow the steps below to set up the project on your local machine or AWS environment.
-
+Follow the steps below to set up the project on your local machine .
 
 
 ### 1. **Clone the repository**:
 Clone the project repository to your local machine using the following command:
 
-     ```bash
+   
      git clone git@github.com:Samiha128/Academic-Patent.git
      cd Academic-Patent
-     ```
-### 2. Set up AWS services:
-   This project leverages several AWS services. Here's how to set them up:
-   
-#### EC2 Instance Setup:
+    
+### 2.**Start the Docker Containers**:
+Navigate to the project directory and run the following command to bring up the Docker containers in detached mode:
 
-  Create an EC2 instance:
-  Launch an EC2 instance in your desired AWS region (preferably t2.micro for Free Tier usage).
-#### Connect to your EC2 instance:
-
-Use SSH to connect to your instance:
-
-    ```bash
-      ssh -i "path/to/your/file.pem" ec2-user@<your-ec2-public-ip>
-      
+    docker-compose up -d
+### 3.Launch the Development Container
 
 
-#### Installing Kafka on EC2
-
-1. **Download and extract Kafka**:
-
-    ```bash
-    wget https://archive.apache.org/dist/kafka/3.6.1/kafka_2.12-3.6.1.tgz
-    tar -xvf kafka_2.12-3.6.1.tgz
-    cd kafka_2.12-3.6.1
-    ```
-
-2. **Install Java** (Kafka requires Java 17 or above):
-
-    ```bash
-    sudo yum install java-17-amazon-corretto
-    java -version
-    ```
-
-3.**Starting Zookeeper and Kafka:**
-  ```bash
-       bin/zookeeper-server-start.sh config/zookeeper.properties
-
-  ```
-In a new terminal session, start the Kafka server:
-  ```bash
-       export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
-       cd kafka_2.12-3.6.1
-       bin/kafka-server-start.sh config/server.properties
-
-
-  ```
-Note: You may need to modify the server.properties file to set your EC2's public IP address. 
-   ```bash
-       sudo nano config/server.properties
-
-  ```
-Change the line for ADVERTISED_LISTENERS to your EC2 instance's public IP address:
-
-```bash
-      ADVERTISED_LISTENERS=PLAINTEXT://your-ec2-public-ip:9092
-  ```
-4.**Creating a Kafka Topic:**
-
-In a new terminal session, create a Kafka topic for stock market data:
-```bash
-      cd kafka_2.12-3.6.1
-     bin/kafka-topics.sh --create --topic stock_market_data --bootstrap-server your-ec2-public-ip:9092 --replication-factor 1 --partitions 1
-
-  ```
-5.**Starting Producer and Consumer:**
-Start a producer to simulate sending stock market data:
-```bash
-     bin/kafka-console-producer.sh --topic stock_market_data --bootstrap-server your-ec2-public-ip:9092
-
-  ```
-Start a consumer to listen to the topic:
-```bash
-     bin/kafka-console-consumer.sh --topic stock_market_data --bootstrap-server your-ec2-public-ip:9092
-
-  ```
-**Create an S3 Bucket**
-
-**AWS Glue Crawler Setup**
-
-1.Create a Glue Crawler
-
-2.Create a Glue Database
-
-**Set up Athena**
 
 ## Architecture
 ![Architecture](./images/architecture.png)
